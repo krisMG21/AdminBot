@@ -1,56 +1,57 @@
 const { SlashCommandBuilder } = require('discord.js');
-const { getServerInfo, getChannelInfo, getRoleInfo, getUserInfo } = require('./infoFunctions.js');
+const { getServerInfo, getChannelInfo, getRoleInfo, getUserInfo } = require('../../lib/infoFunctions.js');
 
 module.exports = {
-	data: new SlashCommandBuilder()
-		.setName('info')
-		.setDescription('Provides information about the server and its components.')
-		.addBooleanOption(option =>
-			option.setName('server')
-				.setDescription('Whether to get information about the server.')
-				.setRequired(false))
-		.addStringOption(option =>
-			option.setName('channel')
-				.setDescription('The channel to get information about.')
-				.setRequired(false))
-		.addStringOption(option =>
-			option.setName('role')
-				.setDescription('The role to get information about.')
-				.setRequired(false))
-		.addStringOption(option =>
-			option.setName('user')
-				.setDescription('The user to get information about.')
-				.setRequired(false)),
+    data: new SlashCommandBuilder()
+        .setName('info')
+        .setDescription('Provides information about the server and its components.')
+        .addSubcommand(subcommand =>
+            subcommand.setName('server')
+                .setDescription('Provides information about the server.'))
+        .addSubcommand(subcommand =>
+            subcommand.setName('channel')
+                .setDescription('Provides information about a channel.')
+                .addStringOption(option =>
+                    option.setName('channel')
+                        .setDescription('The channel to get information about.')
+                        .setRequired(true)))
+        .addSubcommand(subcommand =>
+            subcommand.setName('role')
+                .setDescription('Provides information about a role.')
+                .addStringOption(option =>
+                    option.setName('role')
+                        .setDescription('The role to get information about.')
+                        .setRequired(true)))
+        .addSubcommand(subcommand =>
+            subcommand.setName('user')
+                .setDescription('Provides information about a user.')
+                .addStringOption(option =>
+                    option.setName('user')
+                        .setDescription('The user to get information about.')
+                        .setRequired(true))),
 
-	async execute(interaction) {
-		const { server, channel, role, user } = interaction.options;
+    async execute(interaction) {
+        const subcommand = interaction.options.getSubcommand();
+        const channel = interaction.options.getChannel('channel');
+        const role = interaction.options.getRole('role');
+        const user = interaction.options.getUser('user');
 
-		if (server) {
-			const serverInfo = await interaction.guild.fetch();
-			await interaction.reply({
-				embed: await getServerInfo(serverInfo),
-			});
-		}
-
-		if (channel) {
-			const channelInfo = await channel.fetch();
-			await interaction.reply({
-				embed: await getChannelInfo(channelInfo),
-			});
-		}
-
-		if (role) {
-			const roleInfo = await role.fetch();
-			await interaction.reply({
-				embed: await getRoleInfo(roleInfo),
-			});
-		}
-
-		if (user) {
-			const userInfo = await user.fetch();
-			await interaction.reply({
-				embed: await getUserInfo(userInfo),
-			});
-		}
-	},
+        switch (subcommand) {
+            case 'server':
+                await interaction.reply(getServerInfo(interaction.guild));
+                break;
+            case 'channel':
+                await interaction.reply(getChannelInfo(interaction.guild, channel));
+                break;
+            case 'role':
+                await interaction.reply(getRoleInfo(interaction.guild, role));
+                break;
+            case 'user':
+                await interaction.reply(getUserInfo(interaction.guild, user));
+                break;
+            default:
+                await interaction.reply('Invalid subcommand.');
+                break;
+        }
+    },
 };
