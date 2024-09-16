@@ -1,56 +1,45 @@
 const { SlashCommandBuilder } = require('discord.js');
-const { getServerInfo, getChannelInfo, getRoleInfo, getUserInfo } = require('../../lib/infoFunctions.js');
+const { handleServerInfo, handleUserInfo, handleChannelInfo, handleRoleInfo } = require('../../lib/infoFunctions');
 
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('info')
-        .setDescription('Provides information about the server and its components.')
+        .setDescription('Get information about various server elements')
         .addSubcommand(subcommand =>
-            subcommand.setName('server')
-                .setDescription('Provides information about the server.'))
+            subcommand
+                .setName('server')
+                .setDescription('Get information about the server'))
         .addSubcommand(subcommand =>
-            subcommand.setName('channel')
-                .setDescription('Provides information about a channel.')
-                .addStringOption(option =>
-                    option.setName('channel')
-                        .setDescription('The channel to get information about.')
-                        .setRequired(true)))
+            subcommand
+                .setName('user')
+                .setDescription('Get information about a user')
+                .addUserOption(option => option.setName('target').setDescription('The user to get info about').setRequired(true)))
         .addSubcommand(subcommand =>
-            subcommand.setName('role')
-                .setDescription('Provides information about a role.')
-                .addStringOption(option =>
-                    option.setName('role')
-                        .setDescription('The role to get information about.')
-                        .setRequired(true)))
+            subcommand
+                .setName('channel')
+                .setDescription('Get information about a channel')
+                .addChannelOption(option => option.setName('target').setDescription('The channel to get info about').setRequired(true)))
         .addSubcommand(subcommand =>
-            subcommand.setName('user')
-                .setDescription('Provides information about a user.')
-                .addStringOption(option =>
-                    option.setName('user')
-                        .setDescription('The user to get information about.')
-                        .setRequired(true))),
+            subcommand
+                .setName('role')
+                .setDescription('Get information about a role')
+                .addRoleOption(option => option.setName('target').setDescription('The role to get info about').setRequired(true))),
 
     async execute(interaction) {
         const subcommand = interaction.options.getSubcommand();
-        const channel = interaction.options.getChannel('channel');
-        const role = interaction.options.getRole('role');
-        const user = interaction.options.getUser('user');
 
         switch (subcommand) {
             case 'server':
-                await interaction.reply(getServerInfo(interaction.guild));
-                break;
-            case 'channel':
-                await interaction.reply(getChannelInfo(interaction.guild, channel));
-                break;
-            case 'role':
-                await interaction.reply(getRoleInfo(interaction.guild, role));
+                await handleServerInfo(interaction);
                 break;
             case 'user':
-                await interaction.reply(getUserInfo(interaction.guild, user));
+                await handleUserInfo(interaction);
                 break;
-            default:
-                await interaction.reply('Invalid subcommand.');
+            case 'channel':
+                await handleChannelInfo(interaction);
+                break;
+            case 'role':
+                await handleRoleInfo(interaction);
                 break;
         }
     },

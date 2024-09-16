@@ -1,0 +1,203 @@
+/info user @KrisMG21
+DiscordAPIError[10062]: Unknown interaction
+    at handleErrors (/mnt/c/Users/crist/Documents/Projects/ConfigBot/node_modules/@discordjs/rest/dist/index.js:727:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async BurstHandler.runRequest (/mnt/c/Users/crist/Documents/Projects/ConfigBot/node_modules/@discordjs/rest/dist/index.js:831:23)
+    at async _REST.request (/mnt/c/Users/crist/Documents/Projects/ConfigBot/node_modules/@discordjs/rest/dist/index.js:1272:22)
+    at async ChatInputCommandInteraction.reply (/mnt/c/Users/crist/Documents/Projects/ConfigBot/node_modules/discord.js/src/structures/interfaces/InteractionResponses.js:115:5)
+    at async Object.execute (/mnt/c/Users/crist/Documents/Projects/ConfigBot/events/interactionCreate.js:48:5)
+Emitted 'error' event on Client instance at:
+    at emitUnhandledRejectionOrErr (node:events:402:10)
+    at process.processTicksAndRejections (node:internal/process/task_queues:84:21) {
+  requestBody: {
+    files: [],
+    json: {
+      type: 4,
+      data: {
+        content: 'There was an error while executing this command!',
+        tts: false,
+        nonce: undefined,
+        enforce_nonce: false,
+        embeds: undefined,
+        components: undefined,
+        username: undefined,
+        avatar_url: undefined,
+        allowed_mentions: undefined,
+        flags: undefined,
+        message_reference: undefined,
+        attachments: undefined,
+        sticker_ids: undefined,
+        thread_name: undefined,
+        applied_tags: undefined,
+        poll: undefined
+      }
+    }
+  },
+  rawError: { message: 'Unknown interaction', code: 10062 },
+  code: 10062,
+  status: 404,
+  method: 'POST',
+  url: 'https://discord.com/api/v10/interactions/1284119328576508035/aW50ZXJhY3Rpb246MTI4NDExOTMyODU3NjUwODAzNTpZWGpDMGJKdEhuRndVQ0ZrVFVwems3bFk5aE1NUmJ4VFIzakE0U0s4TWlwUGdYVE9kbG95OGNtSGt3VmdxWFhBTHF1S0Y1SUhkWW9rbHVDdTYyUzhreUVIb1BLTkZzWGVVVUlUaWFhM0Q4c0VXc2dHRlFkbmdranZoWHVtVkFCbA/callback'
+}
+
+/info server:
+DiscordAPIError[50006]: Cannot send an empty message
+    at handleErrors (/mnt/c/Users/crist/Documents/Projects/ConfigBot/node_modules/@discordjs/rest/dist/index.js:727:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async SequentialHandler.runRequest (/mnt/c/Users/crist/Documents/Projects/ConfigBot/node_modules/@discordjs/rest/dist/index.js:1128:23)
+    at async SequentialHandler.queueRequest (/mnt/c/Users/crist/Documents/Projects/ConfigBot/node_modules/@discordjs/rest/dist/index.js:959:14)
+    at async _REST.request (/mnt/c/Users/crist/Documents/Projects/ConfigBot/node_modules/@discordjs/rest/dist/index.js:1272:22)
+    at async InteractionWebhook.editMessage (/mnt/c/Users/crist/Documents/Projects/ConfigBot/node_modules/discord.js/src/structures/Webhook.js:341:15)
+    at async ChatInputCommandInteraction.editReply (/mnt/c/Users/crist/Documents/Projects/ConfigBot/node_modules/discord.js/src/structures/interfaces/InteractionResponses.js:162:17)
+    at async Object.execute (/mnt/c/Users/crist/Documents/Projects/ConfigBot/commands/utility/info.js:43:17)
+    at async Object.execute (/mnt/c/Users/crist/Documents/Projects/ConfigBot/events/interactionCreate.js:42:4) {
+  requestBody: {
+    files: [],
+    json: {
+      content: undefined,
+      tts: false,
+      nonce: undefined,
+      enforce_nonce: false,
+      embeds: undefined,
+      components: undefined,
+      username: undefined,
+      avatar_url: undefined,
+      allowed_mentions: undefined,
+      flags: undefined,
+      message_reference: undefined,
+      attachments: undefined,
+      sticker_ids: undefined,
+      thread_name: undefined,
+      applied_tags: undefined,
+      poll: undefined
+    }
+  },
+  rawError: { message: 'Cannot send an empty message', code: 50006 },
+  code: 50006,
+  status: 400,
+  method: 'PATCH',
+  url: 'https://discord.com/api/v10/webhooks/1282615801878413322/aW50ZXJhY3Rpb246MTI4NDEyMTMzODQ0OTIzNjA0OTpzem43cjJ3U3h5WGpKZEE3RnMwNGFsaTk4ZGQ5OTZUWERRYXNzTmhlRjA4dDhDa3NoMTNKcUxnc2g1b0poRmZoc1ZkSmtFME5sUGNpZUZUenpRRnJjUVpPdlk4Uk9uVG1SNXVxcEJtSUUySURPUjMzeFFsckpjNWxlMWlieG00Qw/messages/@original'
+}
+
+command: role
+DiscordAPIError[50006]: Cannot send an empty message
+    at handleErrors (/mnt/c/Users/crist/Documents/Projects/ConfigBot/node_modules/@discordjs/rest/dist/index.js:727:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async BurstHandler.runRequest (/mnt/c/Users/crist/Documents/Projects/ConfigBot/node_modules/@discordjs/rest/dist/index.js:831:23)
+    at async _REST.request (/mnt/c/Users/crist/Documents/Projects/ConfigBot/node_modules/@discordjs/rest/dist/index.js:1272:22)
+    at async ChatInputCommandInteraction.reply (/mnt/c/Users/crist/Documents/Projects/ConfigBot/node_modules/discord.js/src/structures/interfaces/InteractionResponses.js:115:5)
+    at async Object.execute (/mnt/c/Users/crist/Documents/Projects/ConfigBot/commands/utility/info.js:51:17)
+    at async Object.execute (/mnt/c/Users/crist/Documents/Projects/ConfigBot/events/interactionCreate.js:42:4) {
+  requestBody: { files: [], json: { type: 4, data: [Object] } },
+  rawError: { message: 'Cannot send an empty message', code: 50006 },
+  code: 50006,
+  status: 400,
+  method: 'POST',
+  url: 'https://discord.com/api/v10/interactions/1284121627545567315/aW50ZXJhY3Rpb246MTI4NDEyMTYyNzU0NTU2NzMxNTpGZktrZ1c5WDlldEpTUWhJWGdlekVrb2xCNGFDcnZUbGlVTE5VWGFIR2hZdW9YY1VOTGZwQjV2SVhkRVVNT1BXTzFHaFZaQ0hXam9xOU9kdVB2c2hmNkl3SFRkOGZkQjF0SWRQRGNsS3lxTUsxTlVZSVhrYkFZY2hsMG1DTGRtMQ/callback'
+}
+node:events:497
+      throw er; // Unhandled 'error' event
+      ^
+
+DiscordAPIError[10062]: Unknown interaction
+    at handleErrors (/mnt/c/Users/crist/Documents/Projects/ConfigBot/node_modules/@discordjs/rest/dist/index.js:727:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async BurstHandler.runRequest (/mnt/c/Users/crist/Documents/Projects/ConfigBot/node_modules/@discordjs/rest/dist/index.js:831:23)
+    at async _REST.request (/mnt/c/Users/crist/Documents/Projects/ConfigBot/node_modules/@discordjs/rest/dist/index.js:1272:22)
+    at async ChatInputCommandInteraction.reply (/mnt/c/Users/crist/Documents/Projects/ConfigBot/node_modules/discord.js/src/structures/interfaces/InteractionResponses.js:115:5)
+    at async Object.execute (/mnt/c/Users/crist/Documents/Projects/ConfigBot/events/interactionCreate.js:48:5)
+Emitted 'error' event on Client instance at:
+    at emitUnhandledRejectionOrErr (node:events:402:10)
+    at process.processTicksAndRejections (node:internal/process/task_queues:84:21) {
+  requestBody: {
+    files: [],
+    json: {
+      type: 4,
+      data: {
+        content: 'There was an error while executing this command!',
+        tts: false,
+        nonce: undefined,
+        enforce_nonce: false,
+        embeds: undefined,
+        components: undefined,
+        username: undefined,
+        avatar_url: undefined,
+        allowed_mentions: undefined,
+        flags: undefined,
+        message_reference: undefined,
+        attachments: undefined,
+        sticker_ids: undefined,
+        thread_name: undefined,
+        applied_tags: undefined,
+        poll: undefined
+      }
+    }
+  },
+  rawError: { message: 'Unknown interaction', code: 10062 },
+  code: 10062,
+  status: 404,
+  method: 'POST',
+  url: 'https://discord.com/api/v10/interactions/1284121627545567315/aW50ZXJhY3Rpb246MTI4NDEyMTYyNzU0NTU2NzMxNTpGZktrZ1c5WDlldEpTUWhJWGdlekVrb2xCNGFDcnZUbGlVTE5VWGFIR2hZdW9YY1VOTGZwQjV2SVhkRVVNT1BXTzFHaFZaQ0hXam9xOU9kdVB2c2hmNkl3SFRkOGZkQjF0SWRQRGNsS3lxTUsxTlVZSVhrYkFZY2hsMG1DTGRtMQ/callback'
+}
+
+command: channel
+DiscordAPIError[50006]: Cannot send an empty message
+    at handleErrors (/mnt/c/Users/crist/Documents/Projects/ConfigBot/node_modules/@discordjs/rest/dist/index.js:727:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async BurstHandler.runRequest (/mnt/c/Users/crist/Documents/Projects/ConfigBot/node_modules/@discordjs/rest/dist/index.js:831:23)
+    at async _REST.request (/mnt/c/Users/crist/Documents/Projects/ConfigBot/node_modules/@discordjs/rest/dist/index.js:1272:22)
+    at async ChatInputCommandInteraction.reply (/mnt/c/Users/crist/Documents/Projects/ConfigBot/node_modules/discord.js/src/structures/interfaces/InteractionResponses.js:115:5)
+    at async Object.execute (/mnt/c/Users/crist/Documents/Projects/ConfigBot/commands/utility/info.js:47:17)
+    at async Object.execute (/mnt/c/Users/crist/Documents/Projects/ConfigBot/events/interactionCreate.js:42:4) {
+  requestBody: { files: [], json: { type: 4, data: [Object] } },
+  rawError: { message: 'Cannot send an empty message', code: 50006 },
+  code: 50006,
+  status: 400,
+  method: 'POST',
+  url: 'https://discord.com/api/v10/interactions/1284122025811640371/aW50ZXJhY3Rpb246MTI4NDEyMjAyNTgxMTY0MDM3MToxTW9PV0VOa3dKSHVra1dZbFFMRE4za1MxM1dWUjFZSHJSbWx3N1kzbUhzQWZRTnBYSnYxNE5EcThES3pRWkYzMEVZNGdOTXBHWDBPRGhFNzE2dXBnNXA1aWcxNUZBNDJQT2F6eUdpUTgxWktwdjR1ejc1ZzBPSlUzVThydWtKMw/callback'
+}
+node:events:497
+      throw er; // Unhandled 'error' event
+      ^
+
+DiscordAPIError[10062]: Unknown interaction
+    at handleErrors (/mnt/c/Users/crist/Documents/Projects/ConfigBot/node_modules/@discordjs/rest/dist/index.js:727:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async BurstHandler.runRequest (/mnt/c/Users/crist/Documents/Projects/ConfigBot/node_modules/@discordjs/rest/dist/index.js:831:23)
+    at async _REST.request (/mnt/c/Users/crist/Documents/Projects/ConfigBot/node_modules/@discordjs/rest/dist/index.js:1272:22)
+    at async ChatInputCommandInteraction.reply (/mnt/c/Users/crist/Documents/Projects/ConfigBot/node_modules/discord.js/src/structures/interfaces/InteractionResponses.js:115:5)
+    at async Object.execute (/mnt/c/Users/crist/Documents/Projects/ConfigBot/events/interactionCreate.js:48:5)
+Emitted 'error' event on Client instance at:
+    at emitUnhandledRejectionOrErr (node:events:402:10)
+    at process.processTicksAndRejections (node:internal/process/task_queues:84:21) {
+  requestBody: {
+    files: [],
+    json: {
+      type: 4,
+      data: {
+        content: 'There was an error while executing this command!',
+        tts: false,
+        nonce: undefined,
+        enforce_nonce: false,
+        embeds: undefined,
+        components: undefined,
+        username: undefined,
+        avatar_url: undefined,
+        allowed_mentions: undefined,
+        flags: undefined,
+        message_reference: undefined,
+        attachments: undefined,
+        sticker_ids: undefined,
+        thread_name: undefined,
+        applied_tags: undefined,
+        poll: undefined
+      }
+    }
+  },
+  rawError: { message: 'Unknown interaction', code: 10062 },
+  code: 10062,
+  status: 404,
+  method: 'POST',
+  url: 'https://discord.com/api/v10/interactions/1284122025811640371/aW50ZXJhY3Rpb246MTI4NDEyMjAyNTgxMTY0MDM3MToxTW9PV0VOa3dKSHVra1dZbFFMRE4za1MxM1dWUjFZSHJSbWx3N1kzbUhzQWZRTnBYSnYxNE5EcThES3pRWkYzMEVZNGdOTXBHWDBPRGhFNzE2dXBnNXA1aWcxNUZBNDJQT2F6eUdpUTgxWktwdjR1ejc1ZzBPSlUzVThydWtKMw/callback'
+}
+
